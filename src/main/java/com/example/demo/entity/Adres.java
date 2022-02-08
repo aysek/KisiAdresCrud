@@ -1,7 +1,6 @@
 package com.example.demo.entity;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -18,7 +17,8 @@ public class Adres implements Serializable {
 
     @Id
     @SequenceGenerator(name="seq_kisi_adres",allocationSize = 1)
-    @GeneratedValue(generator = "seq_kisi_adres",strategy = GenerationType.SEQUENCE) //id fieldı üretilirken  GeneratedValue ile yaratıyoruz
+    @GeneratedValue(generator = "seq_kisi_adres",strategy = GenerationType.SEQUENCE)
+    //id fieldı üretilirken  GeneratedValue ile yaratıyoruz
     private Long id;
 
     @Column(length = 500,name = "adres")
@@ -34,7 +34,7 @@ public class Adres implements Serializable {
     @JoinColumn(name = "kisi_adres_id")
     private Kisi kisi;
 
-    enum AdresTip{
+    public enum AdresTip{
         EV_ADRESİ,
         IS_ADRESI,
         DIGER;
