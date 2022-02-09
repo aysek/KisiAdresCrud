@@ -14,7 +14,7 @@ import java.util.List;
 public class KisiController {
     private final KisiService kisiService;
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<KisiDto> kaydet(@RequestBody KisiDto kisiDto){
         return ResponseEntity.ok(kisiService.save(kisiDto));
     }

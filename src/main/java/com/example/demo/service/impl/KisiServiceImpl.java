@@ -27,14 +27,14 @@ public class KisiServiceImpl implements KisiService {
     @Override
     @Transactional
     public KisiDto save(KisiDto kisiDto) {
-        Assert.isNull(kisiDto.getAdi(),"Adı boş olamaz");
+       // Assert.isNull(kisiDto.getAdi(),"Adı boş olamaz");
 
         Kisi kisi = new Kisi();
         kisi.setAdi(kisiDto.getAdi());
         kisi.setSoyadi(kisiDto.getSoyadi());
         final Kisi kisiDb = kisiRepository.save(kisi);
-        List<Adres> liste = new ArrayList<>();
 
+        List<Adres> liste = new ArrayList<>();
         kisiDto.getAdresler().forEach(item->{
             Adres adres = new Adres();
             adres.setAdres(item);
@@ -52,6 +52,15 @@ public class KisiServiceImpl implements KisiService {
     @Override
     public void delete() {
 
+    }
+
+    @Override
+    public KisiDto get(KisiDto kisiDto) {
+
+
+
+
+        return null;
     }
 
     @Override
