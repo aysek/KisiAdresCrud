@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface KisiService {
     KisiDto save(KisiDto kisiDto);
-    void delete();
+    Boolean delete(Long id);
     KisiDto getById(Long id);
     List<KisiDto> getAll();
     Page<KisiDto> getAll(Pageable pageable);

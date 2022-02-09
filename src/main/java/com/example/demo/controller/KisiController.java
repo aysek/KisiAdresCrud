@@ -15,8 +15,9 @@ import java.util.List;
 public class KisiController {
     private final KisiService kisiService;
     private final KisiServiceImpl kisiServiceImpl;
+
     @PostMapping()
-    public ResponseEntity<KisiDto> kaydet(@RequestBody KisiDto kisiDto){
+    public ResponseEntity<KisiDto> kaydet(@RequestBody KisiDto kisiDto) {
         return ResponseEntity.ok(kisiService.save(kisiDto));
     }
 
@@ -32,4 +33,9 @@ public class KisiController {
         return ResponseEntity.ok(kisi);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable(value = "id", required = true) Long id) {
+        return ResponseEntity.ok(kisiServiceImpl.delete(id));
+
+    }
 }

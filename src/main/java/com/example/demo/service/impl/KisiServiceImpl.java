@@ -52,8 +52,9 @@ public class KisiServiceImpl implements KisiService {
     }
 
     @Override
-    public void delete() {
-
+    public Boolean delete(Long kisiId) {
+        kisiRepository.deleteById(kisiId);
+        return true;
     }
 
     @Override
