@@ -7,11 +7,12 @@ import com.example.demo.repo.AdresRepository;
 import com.example.demo.repo.KisiRepository;
 import com.example.demo.service.KisiService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class KisiServiceImpl implements KisiService {
 
     private final KisiRepository kisiRepository;
     private final AdresRepository adresRepository;
+    private final ModelMapper modelMapper;
 
     @Override
     @Transactional
@@ -55,12 +57,9 @@ public class KisiServiceImpl implements KisiService {
     }
 
     @Override
-    public KisiDto get(KisiDto kisiDto) {
-
-
-
-
-        return null;
+    public KisiDto getById(Long id) {
+        Kisi kisi = kisiRepository.getById(id);
+        return modelMapper.map(kisi, KisiDto.class);
     }
 
     @Override
