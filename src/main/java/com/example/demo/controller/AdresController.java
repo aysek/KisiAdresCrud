@@ -1,10 +1,9 @@
-
+package com.example.demo.controller;
 
 
 import com.example.demo.dto.AdresDto;
 import com.example.demo.service.AdresService;
 import com.example.demo.service.impl.AdresServiceImpl;
-import com.example.demo.service.impl.KisiServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +35,7 @@ public class AdresController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable(value = "id", required = true) Long id) {
+    public ResponseEntity<Boolean> sil(@PathVariable(value = "id", required = true) Long id) {
         return ResponseEntity.ok(adresServiceImpl.delete(id));
 
     }

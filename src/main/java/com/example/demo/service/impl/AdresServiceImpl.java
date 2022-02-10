@@ -1,15 +1,12 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.dto.AdresDto;
-import com.example.demo.dto.KisiDto;
 import com.example.demo.entity.Adres;
-import com.example.demo.entity.Kisi;
 import com.example.demo.repo.AdresRepository;
 import com.example.demo.service.AdresService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -30,7 +27,11 @@ public class AdresServiceImpl implements AdresService {
 
     @Override
     public AdresDto save(AdresDto adresDto) {
-        return null;
+        Adres a = modelMapper.map(adresDto,Adres.class);
+        a=adresRepository.save(a);
+        adresDto.setId(a.getId());
+        return adresDto;
+
     }
 
     public Boolean delete(Long id){

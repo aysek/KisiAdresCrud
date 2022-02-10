@@ -12,7 +12,6 @@ import java.io.Serializable;
 @Setter
 @EqualsAndHashCode(of={"id"})
 @ToString
-
 public class Adres implements Serializable {
 
     @Id
